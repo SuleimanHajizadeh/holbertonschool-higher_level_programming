@@ -2,7 +2,7 @@
 import sys
 
 if __name__ == "__main__":
-    args = sys.argv[1:]  # Skriptin adını çıxmaq üçün [1:]
+    args = sys.argv[1:]
     n = len(args)
     
     if n == 0:
@@ -11,6 +11,6 @@ if __name__ == "__main__":
         print("1 argument:")
     else:
         print("{} arguments:".format(n))
-    
-    for i, arg in enumerate(args, 1):  # 1-dən başlamaq üçün
+
+    for i, arg in enumerate(args, 1):
         print("{}: {}".format(i, arg))
