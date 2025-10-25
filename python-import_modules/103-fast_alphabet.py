@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-a = chr(range(90)[0])
-print(a)
+print(*map(chr, range(65, 91)), sep='', end='\n')
