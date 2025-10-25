@@ -4,7 +4,7 @@ import sys
 if __name__ == "__main__":
     args = sys.argv[1:]
     n = len(args)
-    
+
     if n == 0:
         print("0 arguments.")
     elif n == 1:
