@@ -1,40 +1,48 @@
 #!/usr/bin/python3
-"""Matrix multiplication module"""
+"""Matrix multiplication"""
 
 
 def matrix_mul(m_a, m_b):
-    """Multiplies two matrices after validating them"""
+    """Multiplies two matrices m_a and m_b"""
 
-    if type(m_a) is not list:
+    # 1️⃣ Tip yoxlamaları
+    if not isinstance(m_a, list):
         raise TypeError("m_a must be a list")
-    if type(m_b) is not list:
+    if not isinstance(m_b, list):
         raise TypeError("m_b must be a list")
-
-    if not all(isinstance(row, list) for row in m_a):
+    if any(not isinstance(row, list) for row in m_a):
         raise TypeError("m_a must be a list of lists")
-    if not all(isinstance(row, list) for row in m_b):
+    if any(not isinstance(row, list) for row in m_b):
         raise TypeError("m_b must be a list of lists")
 
-    if m_a == [] or any(row == [] for row in m_a):
+    # 2️⃣ Boş matrix yoxlaması
+    if m_a == [] or m_a == [[]]:
         raise ValueError("m_a can't be empty")
-    if m_b == [] or any(row == [] for row in m_b):
+    if m_b == [] or m_b == [[]]:
         raise ValueError("m_b can't be empty")
 
-    if not all(all(type(el) in (int, float) for el in row) for row in m_a):
-        raise TypeError("m_a should contain only integers or floats")
-    if not all(all(type(el) in (int, float) for el in row) for row in m_b):
-        raise TypeError("m_b should contain only integers or floats")
+    # 3️⃣ Tək tip yoxlaması
+    for row in m_a:
+        if any(not isinstance(x, (int, float)) for x in row):
+            raise TypeError("m_a should contain only integers or floats")
+    for row in m_b:
+        if any(not isinstance(x, (int, float)) for x in row):
+            raise TypeError("m_b should contain only integers or floats")
 
-    if not all(len(row) == len(m_a[0]) for row in m_a):
+    # 4️⃣ Sətir uzunluqlarının eyni olması
+    if any(len(row) != len(m_a[0]) for row in m_a):
         raise TypeError("each row of m_a must be of the same size")
-    if not all(len(row) == len(m_b[0]) for row in m_b):
+    if any(len(row) != len(m_b[0]) for row in m_b):
         raise TypeError("each row of m_b must be of the same size")
 
+    # 5️⃣ Matrix vurma uyğunluğu
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
-    result = [[0 for _ in m_b[0]] for _ in m_a]
+    # 6️⃣ Nəticə matrixi (0-larla) yarat
+    result = [[0 for _ in range(len(m_b[0]))] for _ in range(len(m_a))]
 
+    # 7️⃣ Matrix vurma əməliyyatı
     for i in range(len(m_a)):
         for j in range(len(m_b[0])):
             for k in range(len(m_b)):
