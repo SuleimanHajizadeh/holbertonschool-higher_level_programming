@@ -1,51 +1,42 @@
 #!/usr/bin/python3
-"""Matrix multiplication"""
-
-
 def matrix_mul(m_a, m_b):
     """Multiplies two matrices m_a and m_b"""
 
-    # 1️⃣ Tip yoxlamaları
+    # 1. Validate types
     if not isinstance(m_a, list):
         raise TypeError("m_a must be a list")
     if not isinstance(m_b, list):
         raise TypeError("m_b must be a list")
-    if any(not isinstance(row, list) for row in m_a):
+    if not all(isinstance(row, list) for row in m_a):
         raise TypeError("m_a must be a list of lists")
-    if any(not isinstance(row, list) for row in m_b):
+    if not all(isinstance(row, list) for row in m_b):
         raise TypeError("m_b must be a list of lists")
-
-    # 2️⃣ Boş matrix yoxlaması
     if m_a == [] or m_a == [[]]:
         raise ValueError("m_a can't be empty")
     if m_b == [] or m_b == [[]]:
         raise ValueError("m_b can't be empty")
-
-    # 3️⃣ Tək tip yoxlaması
-    for row in m_a:
-        if any(not isinstance(x, (int, float)) for x in row):
-            raise TypeError("m_a should contain only integers or floats")
-    for row in m_b:
-        if any(not isinstance(x, (int, float)) for x in row):
-            raise TypeError("m_b should contain only integers or floats")
-
-    # 4️⃣ Sətir uzunluqlarının eyni olması
+    if not all(all(isinstance(x, (int, float)) for x in row) for row in m_a):
+        raise TypeError("m_a should contain only integers or floats")
+    if not all(all(isinstance(x, (int, float)) for x in row) for row in m_b):
+        raise TypeError("m_b should contain only integers or floats")
     if any(len(row) != len(m_a[0]) for row in m_a):
         raise TypeError("each row of m_a must be of the same size")
     if any(len(row) != len(m_b[0]) for row in m_b):
         raise TypeError("each row of m_b must be of the same size")
 
-    # 5️⃣ Matrix vurma uyğunluğu
+    # 2. Check if multiplication is possible
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
-    # 6️⃣ Nəticə matrixi (0-larla) yarat
-    result = [[0 for _ in range(len(m_b[0]))] for _ in range(len(m_a))]
-
-    # 7️⃣ Matrix vurma əməliyyatı
+    # 3. Multiply matrices
+    result = []
     for i in range(len(m_a)):
+        row_result = []
         for j in range(len(m_b[0])):
+            s = 0
             for k in range(len(m_b)):
-                result[i][j] += m_a[i][k] * m_b[k][j]
+                s += m_a[i][k] * m_b[k][j]
+            row_result.append(s)
+        result.append(row_result)
 
     return result
