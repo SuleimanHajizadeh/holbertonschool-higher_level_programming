@@ -1,37 +1,21 @@
 #!/usr/bin/python3
 """
-Module 101-lazy_matrix_mul
-Contains lazy_matrix_mul function using NumPy
+    Module to find the max integer in a list
+
+    Write a function that multiplies 2 matrices by using
+    the module NumPy
+
+    To install it: pip3 install numpy==1.15.0
+
+    Prototype: def lazy_matrix_mul(m_a, m_b):
+    Test cases should be the same as 100-matrix_mul
+    but with new exception type/message
 """
+
+
 import numpy as np
 
 
 def lazy_matrix_mul(m_a, m_b):
-    """
-    Multiplies two matrices using NumPy
-
-    Raises:
-        ValueError: If scalars are passed or shapes not aligned
-        TypeError: If elements are not numbers
-
-    Returns:
-        np.ndarray: Result of matrix multiplication
-    """
-    try:
-        return np.matmul(m_a, m_b)
-    except TypeError:
-        # Non-numeric types
-        raise TypeError("invalid data type for einsum")
-    except ValueError as e:
-        msg = str(e)
-        # Scalar cases
-        if "does not have enough dimensions" in msg or "Scalar operands" in msg:
-            raise ValueError("Scalar operands are not allowed, use '*' instead")
-        # Shape misalignment
-        elif "mismatch in its core dimension" in msg or "shapes" in msg:
-            raise ValueError(msg.replace(
-                "matmul: Input operand 1 has a mismatch in its core dimension 0, "
-                "with gufunc signature (n?,k),(k,m?)->(n?,m?)",
-                "shapes ... not aligned"))
-        else:
-            raise
+    """ multiply two matrix with numpy """
+    return np.dot(m_a, m_b)
