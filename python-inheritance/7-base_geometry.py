@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-# 7-base_geometry.py
+#7-base_geometry.py
 
 """Defines a base geometry class BaseGeometry."""
 
 
 class BaseGeometry:
-    """Represent base geometry."""
+    """Reprsent base geometry."""
 
     def area(self):
         """Not yet implemented."""
-        raise Exception("area() is not implemented")
+        raise Exception("area() not implemented")
 
     def integer_validator(self, name, value):
         """Validate a parameter as an integer.
