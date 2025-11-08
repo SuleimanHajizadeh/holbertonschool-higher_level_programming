@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Module that defines a BaseGeometry class with an unimplemented area method."""
+"""Module that defines a BaseGeometry class with an area() method.
+The area() method is not implemented and raises an Exception.
+"""
 
 
 class BaseGeometry:
