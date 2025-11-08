@@ -20,10 +20,7 @@ class BaseGeometry:
             TypeError: If value is not an integer.
             ValueError: If value is <= 0.
         """
-        # İlk hərfi böyük et ki, doctest-lə uyğun olsun
-        cap_name = name[0].upper() + name[1:] if name else name
-
-        if type(value) is not int:  # bool da daxil deyil
-            raise TypeError(f"{cap_name} must be an integer")
+        if type(value) is not int:
+            raise TypeError(f"{name} must be an integer")
         if value <= 0:
-            raise ValueError(f"{cap_name} must be greater than 0")
+            raise ValueError(f"{name} must be greater than 0")

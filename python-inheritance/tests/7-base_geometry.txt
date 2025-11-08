@@ -10,44 +10,44 @@
 ...     bg.integer_validator("name", "John")
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] Name must be an integer
+[TypeError] name must be an integer
 >>> try:
 ...     bg.integer_validator("tuple", (4,))
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] Tuple must be an integer
+[TypeError] tuple must be an integer
 >>> try:
 ...     bg.integer_validator("list", [3])
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] List must be an integer
+[TypeError] list must be an integer
 >>> try:
 ...     bg.integer_validator("bool", True)
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] Bool must be an integer
+[TypeError] bool must be an integer
 >>> try:
 ...     bg.integer_validator("set", {3, 4})
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] Set must be an integer
+[TypeError] set must be an integer
 >>> try:
 ...     bg.integer_validator("none", None)
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] None must be an integer
+[TypeError] none must be an integer
 
 # Zero or negative values → ValueError
 >>> try:
 ...     bg.integer_validator("age", 0)
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] Age must be greater than 0
+[ValueError] age must be greater than 0
 >>> try:
 ...     bg.integer_validator("distance", -4)
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] Distance must be greater than 0
+[ValueError] distance must be greater than 0
 
 # area() method → Exception
 >>> try:
