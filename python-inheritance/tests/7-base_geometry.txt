@@ -22,3 +22,28 @@
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [Exception] area() is not implemented
+>>> try:
+...     bg.integer_validator("tuple", (4,))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] tuple must be an integer
+>>> try:
+...     bg.integer_validator("list", [3])
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] list must be an integer
+>>> try:
+...     bg.integer_validator("bool", True)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] bool must be an integer
+>>> try:
+...     bg.integer_validator("set", {3, 4})
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] set must be an integer
+>>> try:
+...     bg.integer_validator("none", None)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] None must be an integer
