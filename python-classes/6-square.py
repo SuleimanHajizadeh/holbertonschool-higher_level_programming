@@ -11,7 +11,7 @@ class Square:
 
         Args:
             size (int): The size of the square (default is 0).
-            position (tuple): Coordinates (x, y) for printing (default is (0, 0)).
+            position (tuple): Coordinates (x, y) for printing (default (0, 0)).
 
         Raises:
             TypeError: If size is not an integer or position is invalid.
@@ -44,7 +44,8 @@ class Square:
         """Set the private position attribute with validation."""
         if (not isinstance(value, tuple) or
                 len(value) != 2 or
-                not all(isinstance(v, int) for v in value) or
+                not all(isinstance(v, int)
+                        for v in value) or
                 not all(v >= 0 for v in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
