@@ -1,96 +1,95 @@
-=============================
-How to Use 7-base_geometry.py
-=============================
+>>> base_geometry = __import__("7-base_geometry").BaseGeometry
 
-This module defines a base geometry class BaseGeometry.
+>>> len(__import__("7-base_geometry").__doc__) > 1
+True
 
-Instantiation
-=============
+>>> len(__import__("7-base_geometry").BaseGeometry.__doc__) > 1
+True
 
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
->>> bg = BaseGeometry()
->>> type(bg)
-<class '7-base_geometry.BaseGeometry'>
+>>> met = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+>>> len(met) > 1
+True
 
->>> print(bg)  # doctest: +ELLIPSIS
-<7-base_geometry.BaseGeometry object at ...>
-
-Methods
-=======
-
-BaseGeometry features two methods - area(self) and integer_validator(self, name, value).
-
->>> bg = BaseGeometry()
->>> print(bg.area)  # doctest: +ELLIPSIS
-<bound method BaseGeometry.area of <7-base_geometry.BaseGeometry object at ...>>
-
->>> bg.area()
+>>> ar = base_geometry()
+>>> ar.area()
 Traceback (most recent call last):
 ...
 Exception: area() is not implemented
 
->>> print(bg.integer_validator)  # doctest: +ELLIPSIS
-<bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry object at ...>>
-
-Validations
-===========
-
->>> bg.integer_validator("valid number", 1)
-
->>> bg.integer_validator("invalid number", "number")
+>>> ar.area(33)
 Traceback (most recent call last):
 ...
-TypeError: invalid number must be an integer
+TypeError: area() takes 1 positional argument but 2 were given
 
->>> bg.integer_validator("another invalid", True)
+>>> ar.integer_validator("integer", 555)
+
+>>> ar.integer_validator("test", 0)
 Traceback (most recent call last):
 ...
-TypeError: another invalid must be an integer
+ValueError: test must be greater than 0
 
->>> bg.integer_validator("invalid tuple", (1,))
+>>> ar.integer_validator("test2", -444)
 Traceback (most recent call last):
 ...
-TypeError: invalid tuple must be an integer
+ValueError: test2 must be greater than 0
 
->>> bg.integer_validator("and another", [3])
+>>> ar.integer_validator("string", "python")
 Traceback (most recent call last):
 ...
-TypeError: and another must be an integer
+TypeError: string must be an integer
 
->>> bg.integer_validator("more invalid testing", {3, 4})
+>>> ar.integer_validator("float", -444.54)
 Traceback (most recent call last):
 ...
-TypeError: more invalid testing must be an integer
+TypeError: float must be an integer
 
->>> bg.integer_validator("absolutely every possible invalid", None)
+>>> ar.integer_validator("bool", True)
 Traceback (most recent call last):
 ...
-TypeError: absolutely every possible invalid must be an integer
+TypeError: bool must be an integer
 
->>> bg.integer_validator("invalid int", -1)
+>>> ar.integer_validator("list", [1, 2, 3])
 Traceback (most recent call last):
 ...
-ValueError: invalid int must be greater than 0
+TypeError: list must be an integer
 
->>> bg.integer_validator("invalid int", 0)
+>>> ar.integer_validator("tuple", (22, 333))
 Traceback (most recent call last):
 ...
-ValueError: invalid int must be greater than 0
+TypeError: tuple must be an integer
 
-Argument checks
-===============
+>>> ar.integer_validator("complex", complex(33, 44))
+Traceback (most recent call last):
+...
+TypeError: complex must be an integer
 
->>> bg.integer_validator()
+>>> ar.integer_validator("dict", {"key": "value"})
+Traceback (most recent call last):
+...
+TypeError: dict must be an integer
+
+>>> ar.integer_validator("set", {22, "python"})
+Traceback (most recent call last):
+...
+TypeError: set must be an integer
+
+>>> ar.integer_validator("blue", None)
+Traceback (most recent call last):
+...
+TypeError: blue must be an integer
+
+
+>>> ar.integer_validator()
 Traceback (most recent call last):
 ...
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
->>> bg.integer_validator(None)
+>>> ar.integer_validator("integer")
 Traceback (most recent call last):
 ...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
->>> bg.integer_validator({"a": 1}, (1, 2))
+>>> ar.integer_validator("integer", 2, 2)
 Traceback (most recent call last):
 ...
-TypeError: {'a': 1} must be an integer
+TypeError: integer_validator() takes 3 positional arguments but 4 were given
