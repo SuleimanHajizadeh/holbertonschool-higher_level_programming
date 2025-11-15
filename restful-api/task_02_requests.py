@@ -23,20 +23,18 @@ def fetch_and_print_posts():
 
 
 def fetch_and_save_posts():
-    """Bütün post-ları CSV faylına yaz"""
+    """Bütün post-ları CSV faylına yaz (id, title, body başlıqları ilə)"""
     url = "https://jsonplaceholder.typicode.com/posts"
     response = requests.get(url)
 
     if response.status_code == 200:
         posts = response.json()
-        # CSV faylı yaratmaq
         with open("posts.csv", "w", newline="") as csvfile:
-            fieldnames = ["userId", "id", "title", "body"]
+            fieldnames = ["id", "title", "body"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             for post in posts:
                 writer.writerow({
-                    "userId": post["userId"],
                     "id": post["id"],
                     "title": post["title"],
                     "body": post["body"]
