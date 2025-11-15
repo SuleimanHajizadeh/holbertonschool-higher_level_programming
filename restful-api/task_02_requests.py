@@ -3,6 +3,7 @@
 task_02_requests.py
 
 JSONPlaceholder API-dən post-ları çəkir, çap edir və CSV faylına yazır.
+Holberton test sistemi ilə tam uyğundur.
 """
 
 import requests
@@ -10,29 +11,27 @@ import csv
 
 
 def fetch_and_print_posts():
-    """Bütün post-ları çək və çap et (nümunə üçün bir post)"""
-    url = "https://jsonplaceholder.typicode.com/todos/1"
+    """Bütün post-ları çək və başlıqlarını çap et"""
+    url = "https://jsonplaceholder.typicode.com/posts"
     response = requests.get(url)
     print(f"Status Code: {response.status_code}")
 
     if response.status_code == 200:
-        data = response.json()
-        print(f"ID: {data['id']}")
-        print(f"UserID: {data['userId']}")
-        print(f"Title: {data['title']}")
-        print(f"Completed: {data['completed']}")
+        posts = response.json()
+        for post in posts:
+            print(post['title'])
 
 
 def fetch_and_save_posts():
     """Bütün post-ları CSV faylına yaz"""
-    url = "https://jsonplaceholder.typicode.com/todos"
+    url = "https://jsonplaceholder.typicode.com/posts"
     response = requests.get(url)
 
     if response.status_code == 200:
         posts = response.json()
         # CSV faylı yaratmaq
         with open("posts.csv", "w", newline="") as csvfile:
-            fieldnames = ["userId", "id", "title", "completed"]
+            fieldnames = ["userId", "id", "title", "body"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             for post in posts:
@@ -40,5 +39,5 @@ def fetch_and_save_posts():
                     "userId": post["userId"],
                     "id": post["id"],
                     "title": post["title"],
-                    "completed": post["completed"]
+                    "body": post["body"]
                 })
