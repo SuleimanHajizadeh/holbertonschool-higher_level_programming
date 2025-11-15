@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """
 Bu modul Pascal üçbucağını yaradan funksiya ehtiva edir.
-pascal_triangle(n) funksiyası n sətri olan üçbucağı list of lists şəklində qaytarır.
+
+pascal_triangle(n) funksiyası n sətri olan üçbucağı
+list of lists şəklində qaytarır.
 """
 
 
@@ -17,13 +19,10 @@ def pascal_triangle(n):
 
     for i in range(1, n):
         prev_row = triangle[i - 1]
-        # Yeni sıra: əvvəlcə 1 əlavə et
-        row = [1]
-        # Orta elementlər: əvvəlki sıradakı qonşu elementlərin cəmi
+        row = [1]  # sıra əvvəli
         for j in range(1, i):
             row.append(prev_row[j - 1] + prev_row[j])
-        # Sıra sonuna 1 əlavə et
-        row.append(1)
+        row.append(1)  # sıra sonu
         triangle.append(row)
 
     return triangle
