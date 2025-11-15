@@ -1,30 +1,36 @@
-#!/usr/bin/python3
-"""
-task_03_http_server.py
-
-Sadə HTTP server yaradır. GET sorğularını qəbul edir və JSON cavab qaytarır.
-"""
+# task_03_http_server.py
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
-class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+class SimpleAPIHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        """GET sorğularını emal edir"""
-        # Cavab statusu və başlıqları
-        self.send_response(200)
-        self.send_header("Content-type", "application/json")
-        self.end_headers()
+        if self.path == "/":
+            self.send_response(200)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"Hello, this is a simple API!")
+        elif self.path == "/data":
+            data = {"name": "John", "age": 30, "city": "New York"}
+            self.send_response(200)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps(data).encode())
+        elif self.path == "/status":
+            self.send_response(200)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"OK")
+        else:
+            self.send_response(404)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"Endpoint not found")
 
-        # JSON cavab
-        response = {"message": "Salam, HTTP server işləyir!"}
-        self.wfile.write(json.dumps(response).encode())
-
-def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler):
-    """Serveri localhost:8080 ünvanında işə salır"""
-    server_address = ('', 8080)  # '' → bütün interfeyslərdən gələn sorğular
+def run(server_class=HTTPServer, handler_class=SimpleAPIHandler, port=8000):
+    server_address = ("", port)
     httpd = server_class(server_address, handler_class)
-    print("Server işə düşdü, CTRL+C ilə dayandırın...")
+    print(f"Server running on http://localhost:{port}")
     httpd.serve_forever()
 
 if __name__ == "__main__":

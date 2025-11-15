@@ -1,33 +1,45 @@
-#!/usr/bin/python3
-"""
-task_04_flask.py
-
-Sadə Flask API nümunəsi. `/hello` endpoint-i GET sorğularını qəbul edir
-və JSON cavab qaytarır.
-"""
+# task_04_flask.py
 
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
+users = {}
 
-# GET endpoint
-@app.route("/hello", methods=["GET"])
-def hello():
-    """Salam mesajı qaytarır"""
-    return jsonify({"message": "Salam, Flask API işləyir!"})
+@app.route("/")
+def home():
+    return "Welcome to the Flask API!"
 
-# POST endpoint
-@app.route("/echo", methods=["POST"])
-def echo():
-    """
-    Göndərilən JSON məlumatını geri qaytarır.
-    Məsələn: {"text": "Salam"} → {"echo": "Salam"}
-    """
+@app.route("/data")
+def data():
+    return jsonify(list(users.keys()))
+
+@app.route("/status")
+def status():
+    return "OK"
+
+@app.route("/users/<username>")
+def get_user(username):
+    if username in users:
+        return jsonify(users[username])
+    return jsonify({"error": "User not found"}), 404
+
+@app.route("/add_user", methods=["POST"])
+def add_user():
+    if not request.is_json:
+        return jsonify({"error": "Invalid JSON"}), 400
     data = request.get_json()
-    if not data or "text" not in data:
-        return jsonify({"error": "JSON-də 'text' açarı yoxdur"}), 400
-    return jsonify({"echo": data["text"]})
+    username = data.get("username")
+    if not username:
+        return jsonify({"error": "Username is required"}), 400
+    if username in users:
+        return jsonify({"error": "Username already exists"}), 409
+    users[username] = {
+        "username": username,
+        "name": data.get("name"),
+        "age": data.get("age"),
+        "city": data.get("city")
+    }
+    return jsonify({"message": "User added", "user": users[username]}), 201
 
 if __name__ == "__main__":
-    # Serveri localhost:5000 ünvanında işə salır
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run()
