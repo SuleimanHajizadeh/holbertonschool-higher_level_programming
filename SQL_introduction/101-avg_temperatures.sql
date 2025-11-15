@@ -1,6 +1,4 @@
 -- 101-avg_temperatures.sql
--- Compute the average temperature by city, descending order
-
 USE hbtn_0c_0;
 
 SELECT city, AVG(temp) AS avg_temp
