@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def to_json(self, attrs=None):
     """
     Obyektin atributlarını dictionary formatında qaytarır.
