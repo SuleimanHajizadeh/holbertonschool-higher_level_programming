@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 Bu modul Python obyektinin JSON nümayəndəliyini qaytaran funksiyanı ehtiva edir.
-to_json_string funksiyası verilmiş obyektin JSON formatında stringini qaytarır.
+to_json_string funksiyası verilmiş obyektin JSON formatında stringini
+qaytarır.
 """
 
 import json
