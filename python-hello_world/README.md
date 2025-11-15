@@ -1,38 +1,170 @@
-# :shell: 0x00 - Hello World :shell:
 
-In this project I will be doing simple tasks to get reacquainted with Python. They will include shell scripts to execute them, linked lists, and other fundamental computer science concepts to refresh my understanding.
+---
 
-## :running: Getting Started
+# 🐍 Introduction to Python — Beginner Guide
 
-* [Ubuntu 14.04 LTS](http://releases.ubuntu.com/14.04/) - Operating system reqd.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/github/explore/main/topics/python/python.png" width="200">
+</p>
 
-* [Python 3.4](https://www.python.org/download/releases/3.4.0/) - Python Version Used
+Python is a powerful, easy-to-learn programming language used in:
 
-## :warning: Prerequisites
+✅ Web development
+✅ Data science & AI
+✅ Automation & scripting
+✅ Game development
+✅ Robotics & IoT
+✅ GUI apps & more!
 
-* Must have `git` installed
+---
 
-* Must have repository cloned
+## 🚀 Why Python?
 
-* Must have `python3` installed
+| Feature               | Benefit                      |
+| --------------------- | ---------------------------- |
+| ✅ Simple syntax       | Easy for beginners           |
+| 🧠 High-level         | Focus on logic, not memory   |
+| 🌎 Cross-platform     | Works on Windows, Mac, Linux |
+| 📚 Huge ecosystem     | Thousands of libraries       |
+| 🤖 Popular in AI & ML | Choice of professionals      |
 
+---
+
+## 🧩 Python Syntax Basics
+
+### Print Output
+
+```python
+print("Hello, Python! 👋")
 ```
-$ sudo apt-get install git
+
+### Variables
+
+```python
+name = "Alice"
+age = 14
+print(name, age)
 ```
 
+### Data Types
+
+| Type       | Example       |
+| ---------- | ------------- |
+| String     | `"Hello"`     |
+| Integer    | `10`          |
+| Float      | `3.14`        |
+| Boolean    | `True`        |
+| List       | `[1, 2, 3]`   |
+| Dictionary | `{"Suleiman": 24}` |
+
+---
+
+## 🧠 Conditions
+
+```python
+age = 18
+
+if age >= 18:
+    print("✅ Allowed")
+else:
+    print("❌ Not allowed")
 ```
-$ sudo apt-get install python3
+
+---
+
+## 🔁 Loops
+
+### For loop
+
+```python
+for i in range(5):
+    print("Loop:", i)
 ```
 
-## :blue_book: Authors
-* **Suleiman Hajizadeh** - [@SuleimanHajizadeh](https://github.com/SuleimanHajizadeh)
+### While loop
 
-## :mag: License
+```python
+count = 3
+while count > 0:
+    print(count)
+    count -= 1
+```
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/SuleimanHajizadeh/holbertonschool-higher_level_programming/blob/master/LICENSE.md) file for details
+---
 
+## 🔹 Functions
 
+```python
+def greet(name):
+    print("Hello", name)
 
-## :mega: Acknowledgments
+greet("Suleiman")
+```
 
-* Holberton School (providing guidance)
+✅ Reusable
+✅ Organized code
+✅ Better structure for projects
+
+---
+
+## 📦 Working with Lists
+
+```python
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+print(fruits[0])  # apple
+```
+
+---
+
+## 🎯 Input from User
+
+```python
+username = input("Enter your name: ")
+print("Welcome,", username)
+```
+
+---
+
+## 🧪 Error Handling
+
+```python
+try:
+    x = int(input("Enter number: "))
+except:
+    print("Invalid input!")
+```
+
+➡️ More details available in your `try/except` README ✅
+
+---
+
+## 📚 Learn More — Buttons
+
+<p align="center">
+<a href="https://docs.python.org/3/tutorial/index.html">
+  <img src="https://img.shields.io/badge/Python%20Docs-Click-blue?style=for-the-badge&logo=python">
+</a>
+<a href="https://www.w3schools.com/python/">
+  <img src="https://img.shields.io/badge/W3Schools-Learn-green?style=for-the-badge">
+</a>
+<a href="https://realpython.com/">
+  <img src="https://img.shields.io/badge/RealPython-Advanced-purple?style=for-the-badge">
+</a>
+</p>
+
+---
+
+## ✅ Summary Table
+
+| Concept        | What You Learned          |
+| -------------- | ------------------------- |
+| Print          | Display output            |
+| Variables      | Store data                |
+| Data Types     | Different kinds of values |
+| Conditions     | Decision making           |
+| Loops          | Repeat actions            |
+| Functions      | Organized code            |
+| Error Handling | Prevent crashes           |
+
+---
