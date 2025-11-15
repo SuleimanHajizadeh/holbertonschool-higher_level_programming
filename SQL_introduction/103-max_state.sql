@@ -1,7 +1,6 @@
--- 103-max_state.sql
-USE hbtn_0c_0;
-
-SELECT state, MAX(temp) AS max_temp
+-- display the max temperature of each state (ordered by State name).
+-- run: cat 103-max_state.sql | mysql -hlocalhost -uroot -p hbtn_0c_0
+SELECT state, MAX(value) AS max_temp
 FROM temperatures
 GROUP BY state
 ORDER BY state;
