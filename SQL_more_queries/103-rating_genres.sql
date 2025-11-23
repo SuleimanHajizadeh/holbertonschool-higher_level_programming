@@ -1,9 +1,11 @@
--- 103-rating_genres.sql
--- List all genres by rating sum
-SELECT g.name, SUM(r.rating) AS rating
-FROM tv_genres g
-JOIN tv_show_genres sg ON g.id = sg.genre_id
-JOIN tv_shows s ON sg.tv_show_id = s.id
-JOIN tv_ratings r ON s.id = r.show_id
-GROUP BY g.name
+#!/usr/bin/env bash
+# this is my sql
+-- lists all privileges Lists all genres in the database  
+SELECT tv_genres.name, SUM(tv_show_ratings.rate) AS rating
+FROM tv_genres
+INNER JOIN tv_show_genres
+ON tv_genres.id = tv_show_genres.genre_id
+INNER JOIN tv_show_ratings
+ON tv_show_genres.show_id = tv_show_ratings.show_id
+GROUP BY name
 ORDER BY rating DESC;
