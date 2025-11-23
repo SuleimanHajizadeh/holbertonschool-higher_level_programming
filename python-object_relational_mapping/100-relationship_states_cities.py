@@ -1,28 +1,35 @@
 #!/usr/bin/python3
 """
 100-relationship_states_cities module
-Script that creates a State 'California' with a City 'San Francisco'
-and links them via a SQLAlchemy relationship.
+Creates a State 'California' with a City 'San Francisco'
+and links them using SQLAlchemy relationships.
 """
+
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
-from relationship_state import State
+from relationship_state import Base, State
 from relationship_city import City
-from model_state import Base
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]),
-                           pool_pre_ping=True)
+    if len(sys.argv) != 4:
+        print("Usage: ./100-relationship_states_cities.py <username> <password> <database>")
+        sys.exit(1)
 
+    user, password, db_name = sys.argv[1], sys.argv[2], sys.argv[3]
+
+    engine = create_engine(
+        f'mysql+mysqldb://{user}:{password}@localhost:3306/{db_name}',
+        pool_pre_ping=True
+    )
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
+    # State və City yaratmaq
     california = State(name="California")
-    california.cities = [City(name="San Francisco")]
+    san_francisco = City(name="San Francisco")
+    california.cities.append(san_francisco)
 
     session.add(california)
     session.commit()
