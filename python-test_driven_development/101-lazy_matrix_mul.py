@@ -4,44 +4,52 @@ import numpy as np
 
 
 def lazy_matrix_mul(m_a, m_b):
-    """Multiply two matrices using NumPy, with Holberton error handling."""
+    """Multiply two matrices using NumPy, with Holberton error handling.
 
-    # Reject non-lists (Holberton expects: ValueError "Scalar operands...")
+    Args:
+        m_a (list of lists of int/float): first matrix
+        m_b (list of lists of int/float): second matrix
+
+    Raises:
+        TypeError: for non-list or non-number elements, unequal row lengths
+        ValueError: for empty matrices or incompatible shapes
+
+    Returns:
+        list: resulting matrix
+    """
+
+    # Validate types
     if not isinstance(m_a, list):
-        raise ValueError("Scalar operands are not allowed, use '*' instead")
+        raise TypeError("m_a must be a list")
     if not isinstance(m_b, list):
-        raise ValueError("Scalar operands are not allowed, use '*' instead")
+        raise TypeError("m_b must be a list")
 
-    # Must be list of lists
+    if m_a == [] or m_a == [[]]:
+        raise ValueError("m_a can't be empty")
+    if m_b == [] or m_b == [[]]:
+        raise ValueError("m_b can't be empty")
+
     if any(not isinstance(row, list) for row in m_a):
-        raise ValueError("m_a and m_b can't be multiplied")
+        raise TypeError("m_a should contain only integers or floats")
     if any(not isinstance(row, list) for row in m_b):
-        raise ValueError("m_a and m_b can't be multiplied")
+        raise TypeError("m_b should contain only integers or floats")
 
-    # Empty matrices → Holberton expects ValueError "m_a and m_b can't be multiplied"
-    if m_a == [] or m_b == []:
-        raise ValueError("m_a and m_b can't be multiplied")
-    if m_a == [[]] or m_b == [[]]:
-        raise ValueError("m_a and m_b can't be multiplied")
+    # Check rows have same size
+    if len({len(row) for row in m_a}) > 1:
+        raise TypeError("each row of m_a must should be of the same size")
+    if len({len(row) for row in m_b}) > 1:
+        raise TypeError("each row of m_b must should be of the same size")
 
-    # All rows must have the same size
-    if len({len(r) for r in m_a}) > 1:
-        raise ValueError("m_a and m_b can't be multiplied")
-    if len({len(r) for r in m_b}) > 1:
-        raise ValueError("m_a and m_b can't be multiplied")
-
-    # Reject non-number elements before NumPy touches them
+    # Check all elements are numbers
     for row in m_a:
-        for v in row:
-            if not isinstance(v, (int, float)):
-                raise TypeError("m_a and m_b can't be multiplied")
+        if any(not isinstance(x, (int, float)) for x in row):
+            raise TypeError("m_a should contain only integers or floats")
     for row in m_b:
-        for v in row:
-            if not isinstance(v, (int, float)):
-                raise TypeError("m_a and m_b can't be multiplied")
+        if any(not isinstance(x, (int, float)) for x in row):
+            raise TypeError("m_b should contain only integers or floats")
 
-    # Finally attempt NumPy multiplication
+    # Perform multiplication
     try:
         return np.matmul(m_a, m_b).tolist()
-    except Exception:
+    except ValueError:
         raise ValueError("m_a and m_b can't be multiplied")
