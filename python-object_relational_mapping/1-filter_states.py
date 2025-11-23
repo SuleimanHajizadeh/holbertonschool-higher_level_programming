@@ -22,9 +22,9 @@ if __name__ == "__main__":
     )
     cur = conn.cursor()
 
-    # Case-insensitive query using UPPER(), split into multiple lines for PEP8
+    # Case-sensitive query using utf8mb4_bin collation
     query = ("SELECT * FROM states "
-             "WHERE UPPER(name) LIKE 'N%' "
+             "WHERE name LIKE 'N%' COLLATE utf8mb4_bin "
              "ORDER BY id ASC")
     cur.execute(query)
     rows = cur.fetchall()
