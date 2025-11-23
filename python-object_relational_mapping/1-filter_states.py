@@ -22,14 +22,13 @@ if __name__ == "__main__":
     )
     cur = conn.cursor()
 
-    # Execute query to get states with name starting with 'N', ordered by id
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    # Case-insensitive query to get states starting with 'N'
+    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' COLLATE utf8_general_ci ORDER BY id ASC")
     rows = cur.fetchall()
 
     # Print results
     for row in rows:
         print(row)
 
-    # Close cursor and connection
     cur.close()
     conn.close()
