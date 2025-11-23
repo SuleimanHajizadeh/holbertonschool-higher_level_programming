@@ -22,8 +22,11 @@ if __name__ == "__main__":
     )
     cur = conn.cursor()
 
-    # Case-insensitive query using UPPER()
-    cur.execute("SELECT * FROM states WHERE UPPER(name) LIKE 'N%' ORDER BY id ASC")
+    # Case-insensitive query using UPPER(), split into multiple lines for PEP8
+    query = ("SELECT * FROM states "
+             "WHERE UPPER(name) LIKE 'N%' "
+             "ORDER BY id ASC")
+    cur.execute(query)
     rows = cur.fetchall()
 
     # Print results
