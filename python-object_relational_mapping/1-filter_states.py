@@ -22,8 +22,8 @@ if __name__ == "__main__":
     )
     cur = conn.cursor()
 
-    # Case-insensitive query to get states starting with 'N'
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' COLLATE utf8_general_ci ORDER BY id ASC")
+    # Case-insensitive query using UPPER()
+    cur.execute("SELECT * FROM states WHERE UPPER(name) LIKE 'N%' ORDER BY id ASC")
     rows = cur.fetchall()
 
     # Print results
