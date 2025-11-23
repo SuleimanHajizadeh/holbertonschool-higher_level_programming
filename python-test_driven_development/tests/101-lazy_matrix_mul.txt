@@ -1,120 +1,75 @@
-=================================
-How to Use 101-lazy_matrix_mul.py
-=================================
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
 
-This module defines a matrix multiplication function ``lazy_matrix_mul(m_a, m_b)``
-that multiplies two matrices using NumPy if available, with proper error handling.
+# m_a is not a list:
+>>> lazy_matrix_mul("hello", [1, 2])
+Traceback (most recent call last):
+TypeError: Scalar operands are not allowed, use '*' instead
 
-Usage
-=====
+# m_b is not a list:
+>>> lazy_matrix_mul([1, 2], "world")
+Traceback (most recent call last):
+TypeError: Scalar operands are not allowed, use '*' instead
 
-``lazy_matrix_mul(m_a, m_b)`` returns a new matrix representing the product
-of ``m_a`` multiplied by ``m_b``.
+# m_a is not a list of lists:
+>>> lazy_matrix_mul([1, 2], [[1, 2]])
+Traceback (most recent call last):
+TypeError: Scalar operands are not allowed, use '*' instead
 
-Basic example:
-::
+# m_b is not a list of lists:
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [5, 6])
+Traceback (most recent call last):
+TypeError: Scalar operands are not allowed, use '*' instead
 
-    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
-    >>> m_a = [
-    ...     [1, 2],
-    ...     [3, 4],
-    ... ]
-    >>> m_b = m_a
-    >>> print(np.array(lazy_matrix_mul(m_a, m_b)))
-    [[ 7 10]
-     [15 22]]
+# m_a is empty:
+>>> lazy_matrix_mul([], [[1, 2]])
+Traceback (most recent call last):
+TypeError: Scalar operands are not allowed, use '*' instead
 
-Non-square multiplication:
-::
+# m_b is empty:
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [])
+Traceback (most recent call last):
+TypeError: Scalar operands are not allowed, use '*' instead
 
-    >>> m_a = [[1, 2]]
-    >>> m_b = [
-    ...     [3, 4],
-    ...     [5, 6]
-    ... ]
-    >>> print(np.array(lazy_matrix_mul(m_a, m_b)))
-    [[13 16]]
+# m_a is a list of empty lists:
+>>> lazy_matrix_mul([[], []], [[1, 2]])
+Traceback (most recent call last):
+ValueError: shapes (2,0) and (1,2) not aligned: 0 (dim 1) != 1 (dim 0)
 
-Floating-point matrices:
-::
+# m_b is a list of empty lists:
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[]])
+Traceback (most recent call last):
+ValueError: shapes (2,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
 
-    >>> m_a = [
-    ...     [1.2, 5.5, 6.2],
-    ...     [4.66, 12.3, -9.2]
-    ... ]
-    >>> m_b = [
-    ...     [5.0, 3.3],
-    ...     [-2.9, 4.4],
-    ...     [7.2, 4.4]
-    ... ]
-    >>> print(np.array(lazy_matrix_mul(m_a, m_b)))
-    [[ 34.69   55.44 ]
-     [-78.61   29.018]]
+# m_a is not a list of lists of ints and/or floats:
+>>> lazy_matrix_mul([[1], ["hello"]], [[1, 2]])
+Traceback (most recent call last):
+TypeError: invalid data type for einsum
 
-Error Handling
-==============
+# m_b is not a list of lists of ints and/or floats:
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [["hello", "world"]])
+Traceback (most recent call last):
+TypeError: invalid data type for einsum
 
-Missing arguments:
-::
+# m_a is not a rectangular matrix:
+>>> lazy_matrix_mul([[1], [2, 3]], [[1, 2]])
+Traceback (most recent call last):
+TypeError: setting an array element with a sequence.
 
-    >>> lazy_matrix_mul(m_a)
-    TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+# m_b is not a rectangular matrix:
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [5]])
+Traceback (most recent call last):
+TypeError: setting an array element with a sequence.
 
-::
+# imposible product of 2x1 and 2x3 matrices:
+>>> lazy_matrix_mul([[1], [2]], [[3, 4, 5], [6, 7, 8]])
+Traceback (most recent call last):
+ValueError: shapes (2,1) and (2,3) not aligned: 1 (dim 1) != 2 (dim 0)
 
-    >>> lazy_matrix_mul()
-    TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+# product of 2 2x2 matrices:
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+array([[ 7, 10],
+       [15, 22]])
 
-Invalid shape:
-::
-
-    >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [2, 3], [4, 5]])
-    ValueError: m_a and m_b can't be multiplied
-
-Empty matrices:
-::
-
-    >>> lazy_matrix_mul([[]], [[5, 6], [7, 8]])
-    ValueError: m_a can't be empty
-
-::
-
-    >>> lazy_matrix_mul([[5, 6], [7, 8]], [[]])
-    ValueError: m_b can't be empty
-
-Invalid data types:
-::
-
-    >>> lazy_matrix_mul("not a list", [[1, 2]])
-    TypeError: m_a must be a list
-
-::
-
-    >>> lazy_matrix_mul([[1, 2]], "not a list")
-    TypeError: m_b must be a list
-
-Non-number elements:
-::
-
-    >>> lazy_matrix_mul([[1, "x"]], [[3, 4]])
-    TypeError: m_a should contain only integers or floats
-
-::
-
-    >>> lazy_matrix_mul([[5, 6], [7, 8]], [[5, "6"], [7, 8]])
-    TypeError: m_b should contain only integers or floats
-
-Unequal row lengths:
-::
-
-    >>> m_a = [[1, 2], [3, 4, 5]]
-    >>> m_b = [[1, 2], [3, 4]]
-    >>> lazy_matrix_mul(m_a, m_b)
-    TypeError: each row of m_a must should be of the same size
-
-::
-
-    >>> m_a = [[1, 2], [3, 4]]
-    >>> m_b = [[1, 2, 3], [4, 5, 6]]
-    >>> lazy_matrix_mul(m_a, m_b)
-    TypeError: each row of m_b must should be of the same size
+# product of 1x2 matrix and 2x2 matrix:
+>>> lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+array([[13, 16]])

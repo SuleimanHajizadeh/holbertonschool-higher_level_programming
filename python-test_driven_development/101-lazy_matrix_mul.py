@@ -1,63 +1,55 @@
 #!/usr/bin/python3
-"""Defines a matrix multiplication function using NumPy."""
+"""
+Module Name: 101-lazy_matrix_mul.py
+
+Description:
+    This module includes a function to multiple two matrices "lazily",
+    i.e, using NumPy.
+
+Functions:
+    lazy_matrix_mul: multiplies two matrices and returns the result.
+"""
 import numpy as np
 
 
 def lazy_matrix_mul(m_a, m_b):
-    """Multiply two matrices using NumPy, with full Holberton-style validation.
+    """
+    lazy_matrix_mul - multiplies two matrices using NumPy
 
     Args:
-        m_a (list of lists of int/float): first matrix
-        m_b (list of lists of int/float): second matrix
-
-    Raises:
-        TypeError: for non-list, non-number, or uneven row length
-        ValueError: for empty matrices or incompatible shapes
+        m_a: first matrix to multiply
+        m_b: second matrix to multiply
 
     Returns:
-        list: resulting matrix
+        Result of the multiplication
+
+    Raises:
+        Left to NumPy.
     """
+    msg_list_type = "Scalar operands are not allowed, use '*' instead"
+    msg_empty = "{:s} can't be empty"
+    msg_int_float = "invalid data type for einsum"
+    msg_rect = "setting an array element with a sequence."
+    matrices = [(m_a, "m_a"), (m_b, "m_b")]
+    for mat, m_str in matrices:
+        if not isinstance(mat, list):
+            raise TypeError(msg_list_type)
+    for mat, m_str in matrices:
+        if not mat or any(not isinstance(row, list) for row in mat):
+            raise TypeError(msg_list_type)
+    """ for mat, m_str in matrices:
+        if not mat[0]:
+            raise ValueError(msg_empty.format(m_str)) """
+    for mat, m_str in matrices:
+        if any(not isinstance(elem, (int, float)) for row in mat
+               for elem in row):
+            raise TypeError(msg_int_float)
+    for mat, m_str in matrices:
+        if any(map(lambda r: len(r) != len(mat[0]), [row for row in mat])):
+            raise TypeError(msg_rect)
+    if not m_a[0] or not m_b[0] or (len(m_a[0]) != len(m_b)):
+        raise ValueError(f"shapes ({len(m_a)},{len(m_a[0])}) and "
+                         f"({len(m_b)},{len(m_b[0])}) not aligned:"
+                         f" {len(m_a[0])} (dim 1) != {len(m_b)} (dim 0)")
 
-    # Validate types
-    if not isinstance(m_a, list):
-        raise TypeError("m_a must be a list")
-    if not isinstance(m_b, list):
-        raise TypeError("m_b must be a list")
-
-    if m_a == [] or m_a == [[]]:
-        raise ValueError("m_a can't be empty")
-    if m_b == [] or m_b == [[]]:
-        raise ValueError("m_b can't be empty")
-
-    if any(not isinstance(row, list) for row in m_a):
-        raise TypeError("m_a should contain only integers or floats")
-    if any(not isinstance(row, list) for row in m_b):
-        raise TypeError("m_b should contain only integers or floats")
-
-    # Check rows have same size
-    if len({len(row) for row in m_a}) > 1:
-        raise TypeError("each row of m_a must should be of the same size")
-    if len({len(row) for row in m_b}) > 1:
-        raise TypeError("each row of m_b must should be of the same size")
-
-    # Check all elements are numbers
-    for row in m_a:
-        if any(not isinstance(x, (int, float)) for x in row):
-            raise TypeError("m_a should contain only integers or floats")
-    for row in m_b:
-        if any(not isinstance(x, (int, float)) for x in row):
-            raise TypeError("m_b should contain only integers or floats")
-
-    # Perform multiplication
-    try:
-        return np.matmul(m_a, m_b).tolist()
-    except ValueError:
-        raise ValueError("m_a and m_b can't be multiplied")
-
-
-if __name__ == "__main__":
-    # Example test case
-    m_a = [[1, 2], [3, 4]]
-    m_b = [[5, 6], [7, 8]]
-    result = lazy_matrix_mul(m_a, m_b)
-    print(np.array(result))  # Prints in NumPy style for Holberton
+    return np.matmul(np.array(m_a), np.array(m_b))
