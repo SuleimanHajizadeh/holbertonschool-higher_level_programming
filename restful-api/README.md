@@ -121,13 +121,6 @@ if __name__ == '__main__':
 
 ---
 
-## 📸 Demo Screenshot
-<p align="center">
-  <img src="https://i.imgur.com/H9D7NvT.png" width="600">
-</p>
-
----
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Download-README-blue?style=for-the-badge&logo=github"></a>
 </p>
