@@ -1,19 +1,35 @@
 #!/usr/bin/python3
 """
-relationship_city module
-Defines the City class for SQLAlchemy ORM
-linked to State class via foreign key.
+Module: relationship_city.py
+Author: TheWatcher01
+Date: 21/03/2024
+Description:
+Contains the class definition of City and an instance Base.
 """
 
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship
-from model_state import Base  # Base importu saxlanılır, model_state.py-dan
+from relationship_state import Base, State
+
 
 class City(Base):
-    """City class linking to cities table with a foreign key to State"""
-    __tablename__ = 'cities'
+    """
+    Class definition for City.
+    """
 
-    id = Column(Integer, primary_key=True, nullable=False)
-    name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
-    state = relationship("State", back_populates="cities")
+    __tablename__ = 'cities'
+    id = Column(Integer,
+                autoincrement=True,
+                unique=True,
+                nullable=False,
+                primary_key=True)
+    name = Column(String(128),
+                  nullable=False)
+    state_id = Column(Integer,
+                      ForeignKey('states.id'),
+                      nullable=False)
+
+    def __str__(self):
+        """
+        String representation of the class.
+        """
+        return "{}: {}".format(self.id, self.name)
