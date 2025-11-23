@@ -4,14 +4,14 @@ import numpy as np
 
 
 def lazy_matrix_mul(m_a, m_b):
-    """Multiply two matrices using NumPy, with Holberton error handling.
+    """Multiply two matrices using NumPy, with full Holberton-style validation.
 
     Args:
         m_a (list of lists of int/float): first matrix
         m_b (list of lists of int/float): second matrix
 
     Raises:
-        TypeError: for non-list or non-number elements, unequal row lengths
+        TypeError: for non-list, non-number, or uneven row length
         ValueError: for empty matrices or incompatible shapes
 
     Returns:
@@ -53,3 +53,11 @@ def lazy_matrix_mul(m_a, m_b):
         return np.matmul(m_a, m_b).tolist()
     except ValueError:
         raise ValueError("m_a and m_b can't be multiplied")
+
+
+if __name__ == "__main__":
+    # Example test case
+    m_a = [[1, 2], [3, 4]]
+    m_b = [[5, 6], [7, 8]]
+    result = lazy_matrix_mul(m_a, m_b)
+    print(np.array(result))  # Prints in NumPy style for Holberton
