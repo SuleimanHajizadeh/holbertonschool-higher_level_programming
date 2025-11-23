@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-City class linked to 'cities' table
+City class linked to 'cities' table.
 """
 
 from sqlalchemy import Column, Integer, String, ForeignKey
@@ -10,6 +10,7 @@ from model_state import Base  # Base imported from model_state.py
 class City(Base):
     """City class with foreign key to State"""
     __tablename__ = 'cities'
+    __table_args__ = {'extend_existing': True}  # Mövcud cədvələ əlavə etməyə icazə verir
 
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
