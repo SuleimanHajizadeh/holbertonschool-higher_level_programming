@@ -16,7 +16,9 @@ if __name__ == "__main__":
 
     # Connect to MySQL
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'.format(user, passwd, db_name),
+        'mysql+mysqldb://{}:{}@localhost/{}'.format(
+            user, passwd, db_name
+        ),
         pool_pre_ping=True
     )
 
@@ -24,7 +26,9 @@ if __name__ == "__main__":
     session = Session()
 
     # Query all states containing 'a' and delete them
-    states_to_delete = session.query(State).filter(State.name.like('%a%')).all()
+    states_to_delete = session.query(State).filter(
+        State.name.like('%a%')
+    ).all()
     for state in states_to_delete:
         session.delete(state)
 
