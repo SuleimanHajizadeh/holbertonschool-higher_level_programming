@@ -1,2 +1,3 @@
-let suleyman = "JavaScript is amazing!";
-console.log(suleyman);
+#!/usr/bin/node
+const myVar = 'JavaScript is amazing';
+console.log(myVar);
