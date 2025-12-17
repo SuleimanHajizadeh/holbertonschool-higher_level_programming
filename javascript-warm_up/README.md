@@ -3,10 +3,6 @@
 This was the first JavaScript project I completed at Holberton. Tasks involved
 writing various introductory-level JavaScript scripts on Node.js.
 
-## Tests :heavy_check_mark:
-
-* [tests](./tests): Folder of test files. Provided by Holberton School.
-
 ## Function Prototypes :floppy_disk:
 
 Prototypes for functions written in this project:
