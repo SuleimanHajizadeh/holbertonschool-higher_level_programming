@@ -24,7 +24,7 @@ Refactor → Clean up the code without breaking the test
 
 Repeat → For every new feature
 
-<p align="center"> <img src="www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Fwww.twinkl.com.pa%2Fteaching-wiki%2Fcomputer&ved=0CBUQjRxqFwoTCJilyv_oxZEDFQAAAAAdAAAAABAH&opi=89978449" width="500"> </p>
+<p align="center"> <img src="https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg" width="500"> </p>
 🔹 Example in Python using unittest
 
 # test_math.py
