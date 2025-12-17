@@ -24,7 +24,7 @@ Refactor → Clean up the code without breaking the test
 
 Repeat → For every new feature
 
-<p align="center"> <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*dNc7EtGnq9c9Q0rZ-UGgQg.png" width="500"> </p>
+<p align="center"> <img src="https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Fxenonstack.wordpress.com%2F2018%2F03%2F05%2Ftest-driven-behavior-driven-development-in-python%2F&ved=0CBUQjRxqFwoTCMjH-qToxZEDFQAAAAAdAAAAABAH&opi=89978449" width="500"> </p>
 🔹 Example in Python using unittest
 # test_math.py
 import unittest
