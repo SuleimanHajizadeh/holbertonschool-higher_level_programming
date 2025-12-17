@@ -4,10 +4,6 @@ Here is the **English version** of your document:
 
 # JavaScript – DOM Manipulation
 
-<div align="right">
-  <a href="README.md">🇬🇧 English</a>
-</div>
-
 ![JavaScript DOM Manipulation Banner](JavaScript%20DOM%20manipulation.jpg)
 
 ## Description
