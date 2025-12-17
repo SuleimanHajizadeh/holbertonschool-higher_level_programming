@@ -5,7 +5,7 @@ Here is the **English version** of your document:
 # JavaScript – DOM Manipulation
 
 <div align="right">
-  <a href="README.md">🇬🇧 English</a> | <a href="README_FR.md">🇫🇷 Français</a>
+  <a href="README.md">🇬🇧 English</a>
 </div>
 
 ![JavaScript DOM Manipulation Banner](../images/JavaScript%20DOM%20manipulation.jpg)
