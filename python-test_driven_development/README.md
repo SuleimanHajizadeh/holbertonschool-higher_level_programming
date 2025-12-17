@@ -80,11 +80,6 @@ def test_add():
     assert add(2, 3) == 5
     assert add(-1, 1) == 0
 
-
-Run:
-
-pytest
-
 🔹 Best Practices
 
 ✅ Write small, focused tests
