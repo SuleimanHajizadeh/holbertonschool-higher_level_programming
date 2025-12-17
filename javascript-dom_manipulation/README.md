@@ -8,7 +8,7 @@ Here is the **English version** of your document:
   <a href="README.md">🇬🇧 English</a>
 </div>
 
-![JavaScript DOM Manipulation Banner](../images/JavaScript%20DOM%20manipulation.jpg)
+![JavaScript DOM Manipulation Banner](JavaScript%20DOM%20manipulation.jpg)
 
 ## Description
 
