@@ -13,3 +13,7 @@ https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in
 https://www.youtube.com/watch?v=swQEbZ6ez1I&list=PLGLfVvz_LVvTn3cK5e6LjhgGiSeVlIRwt&index=2
 https://pypi.org/project/pycodestyle/
 https://docs.python.org/3.8/library/functions.html?highlight=ord#ord
+https://docs.python.org/3/tutorial/modules.html
+https://docs.python.org/3/tutorial/stdlib.html#command-line-arguments
+https://pypi.org/project/pycodestyle/
+https://docs.python.org/3.4/library/dis.html
