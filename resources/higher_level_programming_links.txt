@@ -150,3 +150,15 @@ https://www.youtube.com/watch?v=vZBCTc9zHtI
 https://github.com/mbeaudru/modern-js-cheatsheet
 https://github.com/standard/semistandard
 https://nodejs.org/api/process.html#process_process_argv
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/What_is_JavaScript
+https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+https://developer.mozilla.org/en-US/docs/Web/API/Document
+https://developer.mozilla.org/en-US/docs/Web/API/Element
+https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Selection_and_traversal_on_the_DOM_tree
+https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Selectors
+https://flukeout.github.io/
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/DOM_scripting
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Network_requests
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/What_went_wrong
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
