@@ -78,3 +78,17 @@ https://realpython.com/python-sockets/
 https://www.geeksforgeeks.org/python/socket-programming-multi-threading-python/
 https://www.geeksforgeeks.org/serialization-in-python/
 https://www.tutorialspoint.com/python_network_programming/index.htm
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview
+https://www.cloudflare.com/en-gb/learning/ssl/why-is-http-not-secure/
+https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+https://ec.haxx.se/
+https://thevalleyofcode.com/lesson/http/http-curl/
+https://jsonplaceholder.typicode.com/
+https://docs.python-requests.org/en/latest/
+https://realpython.com/python-json/
+https://docs.python.org/3/library/http.server.html
+https://www.afternerd.com/blog/python-http-server/
+https://flask.palletsprojects.com/en/stable/
+https://flask-httpauth.readthedocs.io/en/latest/
+https://flask-jwt-extended.readthedocs.io/en/stable/
+https://www.jwt.io/introduction
