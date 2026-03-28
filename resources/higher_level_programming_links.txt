@@ -32,3 +32,10 @@ https://www.youtube.com/watch?v=1Lfv5tUGsn8
 https://en.wikipedia.org/wiki/Matrix_multiplication
 https://docs.python.org/3.4/library/unittest.html#module-unittest
 https://numpy.org/
+https://python.swaroopch.com/oop.html
+https://python-course.eu/oop/object-oriented-programming.php
+https://python-course.eu/oop/properties-vs-getters-and-setters.php
+https://www.youtube.com/watch?v=1AGyBuVCTeE&
+https://www.youtube.com/watch?v=apACNr7DC_s
+https://www.youtube.com/watch?v=-DP1i2ZU9gk
+https://www.youtube.com/watch?v=udapt4FGY20&t=0s
