@@ -57,3 +57,10 @@ https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc
 https://www.youtube.com/playlist?list=PLQVvvaa0QuDfhTF3Zfyzc_yD-Mq9iTp4G
 https://docs.python.org/3/library/abc.html
 https://realpython.com/lessons/duck-typing/
+https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
+https://docs.python.org/3/tutorial/errors.html#predefined-clean-up-actions
+https://histo.ucsf.edu/BMS270/diveintopython3-r802.pdf
+https://docs.python.org/3/library/json.html
+https://www.youtube.com/watch?v=EukxMIsNeqU
+https://automatetheboringstuff.com/
+https://docs.python.org/3/library/sys.html
