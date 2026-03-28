@@ -190,3 +190,9 @@ https://flask.palletsprojects.com/en/latest/api/#flask.Request
 https://flask.palletsprojects.com/en/latest/errorhandling/
 https://flask-sqlalchemy.palletsprojects.com/en/latest/
 https://docs.python.org/3/library/sqlite3.html
+http://www.openbookproject.net/thinkcs/python/english2e/ch09.html#objects-and-values
+http://www.openbookproject.net/thinkcs/python/english2e/ch09.html#aliasing
+https://stackoverflow.com/questions/8056130/immutable-vs-mutable-types
+https://www.composingprograms.com/pages/24-mutable-data.html#sequence-objects
+https://www.oreilly.com/radar/
+http://www.openbookproject.net/thinkcs/python/english2e/ch09.html#cloning-lists
