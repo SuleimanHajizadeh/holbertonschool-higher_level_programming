@@ -64,3 +64,17 @@ https://docs.python.org/3/library/json.html
 https://www.youtube.com/watch?v=EukxMIsNeqU
 https://automatetheboringstuff.com/
 https://docs.python.org/3/library/sys.html
+https://intranet.hbtn.io/concepts/1190
+https://intranet.hbtn.io/concepts/1191
+https://realpython.com/python-serialize-data/
+https://realpython.com/python-json/
+https://docs.python.org/3/library/pickle.html
+https://www.youtube.com/watch?v=2Tw39kZIbhs
+https://www.geeksforgeeks.org/python/convert-csv-to-json-using-python/
+https://www.datacamp.com/tutorial/python-xml-elementtree
+https://realpython.com/python-sockets/
+https://docs.python.org/3/library/socket.html
+https://realpython.com/python-sockets/
+https://www.geeksforgeeks.org/python/socket-programming-multi-threading-python/
+https://www.geeksforgeeks.org/serialization-in-python/
+https://www.tutorialspoint.com/python_network_programming/index.htm
