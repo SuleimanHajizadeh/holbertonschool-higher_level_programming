@@ -17,3 +17,6 @@ https://docs.python.org/3/tutorial/modules.html
 https://docs.python.org/3/tutorial/stdlib.html#command-line-arguments
 https://pypi.org/project/pycodestyle/
 https://docs.python.org/3.4/library/dis.html
+https://docs.python.org/3/tutorial/introduction.html#lists
+https://docs.python.org/3/tutorial/datastructures.html
+https://www.youtube.com/watch?v=A1HUzrvS-Pw
