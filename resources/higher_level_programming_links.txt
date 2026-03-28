@@ -26,3 +26,9 @@ https://www.youtube.com/watch?v=1GAC6KQUPeg
 https://en.wikipedia.org/wiki/Roman_numerals
 https://docs.python.org/3/tutorial/errors.html
 https://www.youtube.com/watch?v=7vbgD-3s-w4
+https://docs.python.org/3.4/library/doctest.html
+https://pymotw.com/3/doctest/
+https://www.youtube.com/watch?v=1Lfv5tUGsn8
+https://en.wikipedia.org/wiki/Matrix_multiplication
+https://docs.python.org/3.4/library/unittest.html#module-unittest
+https://numpy.org/
